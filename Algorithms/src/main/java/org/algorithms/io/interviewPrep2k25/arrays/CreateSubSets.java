@@ -1,4 +1,4 @@
-package org.algorithms.io.interviewPrep2k25.tree;
+package org.algorithms.io.interviewPrep2k25.arrays;
 
 import java.util.ArrayList;
 import java.util.List;
