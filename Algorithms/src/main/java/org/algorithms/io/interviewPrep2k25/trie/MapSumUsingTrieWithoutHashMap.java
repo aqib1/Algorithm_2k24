@@ -23,7 +23,7 @@ public class MapSumUsingTrieWithoutHashMap {
             current.val = val;
         }
 
-        // Time complexity O(N) & Space O(S * N) where S is alphabet size
+        // Time complexity O(N + L) & Space O(S * N) where S is alphabet size
         public int sum(String prefix) {
             var current = this;
             for (var ch : prefix.toCharArray()) {

@@ -15,7 +15,7 @@ public class MapSumUsingTrieWithExtraSpace {
             this.keyMap = new HashMap<>();
         }
 
-        // Time complexity O(N) & Space O(S * N) where S is alphabet size
+        // Time complexity O(N + L) & Space O(S * N) where S is alphabet size
         public void insert(String key, int val) {
             var count = val - keyMap.getOrDefault(key, 0);
             keyMap.put(key, val);
@@ -30,7 +30,7 @@ public class MapSumUsingTrieWithExtraSpace {
             }
         }
 
-        // Time complexity O(N) & Space O(S * N) where S is alphabet size
+        // Time complexity O(N + L) & Space O(S * N) where S is alphabet size
         // Sum calculation is optimised by using addition space
         public int sum(String prefix) {
             var current = this;
