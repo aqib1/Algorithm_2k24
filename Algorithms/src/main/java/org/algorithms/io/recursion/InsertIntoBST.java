@@ -3,6 +3,8 @@ package org.algorithms.io.recursion;
 import org.algorithms.io.binarytree.TreeNode;
 
 public class InsertIntoBST {
+    // time complexity OLog(N) or O(h)
+    // Space complexity OLog(N) or O(h)
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if(root == null)
             root = new TreeNode(val);
