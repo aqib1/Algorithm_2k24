@@ -1,4 +1,4 @@
-package org.algorithms.io.recursion;
+package org.algorithms.io.recursion.bst;
 
 import org.algorithms.io.binarytree.TreeNode;
 
