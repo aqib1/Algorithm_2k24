@@ -3,28 +3,41 @@ package org.algorithms.io.recursion;
 import org.algorithms.io.binarytree.TreeNode;
 
 public class DeleteFromBST {
+    // Time complexity OLog(N) and OLog(N) space
     public TreeNode deleteNode(TreeNode root, int key) {
-        if(root == null || root.val == key) {
-            return null;
-        } else {
-            deleteChild(root, key);
-        }
-        return root;
+       if(root == null)
+           return null;
+       if(key > root.val) {
+           root.right = deleteNode(root.right, key);
+       } else if(key < root.val) {
+           root.left = deleteNode(root.left, key);
+       } else {
+           if(root.left == null && root.right == null) {
+               root = null;
+           } else if(root.right != null) {
+               root.val = successor(root);
+               root.right = deleteNode(root.right, root.val);
+           } else {
+               root.val = predecessor(root);
+               root.left = deleteNode(root.left, root.val);
+           }
+       }
+       return root;
     }
 
-    private void deleteChild(TreeNode root, int key) {
-        if(key > root.val && root.right != null) {
-            if(key == root.right.val) {
-                root.right = null;
-            } else {
-                deleteNode(root.right, key);
-            }
-        } else if(key < root.val && root.left != null) {
-            if(key == root.left.val) {
-                root.left = null;
-            } else {
-                deleteNode(root.left, key);
-            }
-        }
+    private int predecessor(TreeNode root) {
+        root = root.left;
+
+        while (root.right != null) root = root.right;
+
+        return root.val;
+    }
+
+    private int successor(TreeNode root) {
+        root = root.right;
+
+        while(root.left != null) root = root.left;
+
+        return root.val;
     }
 }
