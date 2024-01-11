@@ -1,6 +1,5 @@
 package org.algorithms.io.heap;
 
-import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class FindKthLargest {
