@@ -7,6 +7,7 @@ public class CountUniValueBTree {
         return count;
     }
 
+    // Time complexity O(n) and Space complexity O(n)
     private boolean countUni(TreeNode root) {
         if(root == null)
             return true;
