@@ -7,6 +7,8 @@ public class NQueensProblem {
         );
         nqueue.solve();
     }
+
+    // Time complexity O(n!) & Space O(n^2)
     private final int [][] chessTable;
     private final int numberOfQueens;
     public NQueensProblem(int numberOfQueens) {
