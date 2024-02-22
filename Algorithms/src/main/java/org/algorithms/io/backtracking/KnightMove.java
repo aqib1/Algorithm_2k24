@@ -3,7 +3,7 @@ package org.algorithms.io.backtracking;
 import java.util.Arrays;
 
 public class KnightMove {
-
+    // Time complexity O(n!) and space O(n)
     public static void main(String[] args) {
         var k = new KnightMove();
 
