@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NQueensI {
+    // Time O(n!) and space O(n^2)
     public static void main(String[] args) {
         var nqueue = new NQueensI();
         var res = nqueue.solveNQueens(4);
