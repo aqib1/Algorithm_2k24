@@ -22,6 +22,11 @@ public class SudokuSolver {
 
     private char[][] board;
 
+    // time complexity
+    // for one row there are 9 cells to fill and there are 9 possibilities to check (1-9)
+    // once one cell is fill there are 8 cells left so 9 x 8 and then 9 x 8 x 7 ...
+    // so for one row is 9!
+    // for all rows it will be O((9!) ^ 9) and space is constant O(81)
     public boolean isValidSudoku(char[][] board) {
         this.board = board;
         if (solve(0, 0)) {
