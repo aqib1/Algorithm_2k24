@@ -5,10 +5,10 @@ public class BinarySearch {
         var b = new BinarySearch();
         System.out.println(
                 b.find(
-                        new int[] {5, 7, 9, 10, 11},
+                        new int[] {0, 0, 0, 0, 0},
                         0,
-                        5,
-                        5
+                        4,
+                        0
                 )
         );
     }
@@ -23,10 +23,10 @@ public class BinarySearch {
         if(container[mid]  == item)
             return mid;
 
-        if(item > container[mid]) {
-            return find(container, mid + 1, right, item);
-        } else
+        if(item < container[mid]) {
             return find(container, left, mid - 1, item);
+        } else
+            return find(container, mid + 1, right, item);
     }
 
 }
