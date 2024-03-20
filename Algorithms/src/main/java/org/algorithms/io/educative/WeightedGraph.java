@@ -1,4 +1,4 @@
-package org.algorithms.io.graph;
+package org.algorithms.io.educative;
 
 import java.util.*;
 
