@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CourseScheduling {
 
-    // Time complexity O(V + E) and space O(V)
+    // Time complexity O(V + E) and space O(V) where V is vertex
     public static void main(String[] args) {
         var c = new CourseScheduling();
         var response = c.findOrder(2, new int[][]{});
