@@ -2,11 +2,11 @@ package org.algorithms.io.graphs;
 
 import java.util.*;
 
-public class CourseScheduling {
+public class CourseSchedulingII {
 
     // Time complexity O(V + E) and space O(V) where V is vertex
     public static void main(String[] args) {
-        var c = new CourseScheduling();
+        var c = new CourseSchedulingII();
         var response = c.findOrder(2, new int[][]{});
 
         System.out.println(Arrays.toString(response));
