@@ -5,8 +5,29 @@ import java.util.Arrays;
 public class StrStr {
     public static void main(String[] args) {
 //        System.out.println(strString("mississippi", "issip"));
-        System.out.println(longestPrefixSuffix("aacdaacd"));
+        System.out.println(lps1("aacdakcdaac"));
     }
+
+
+    static int lps1(String s) {
+        int[] lps = new int[s.length()];
+        int len = 0;
+        int j = 1;
+        while(j < lps.length) {
+            if(s.charAt(len) == s.charAt(j)) {
+                lps[j++] = ++len;
+            } else {
+                if(len != 0) {
+                    len = lps[len - 1];
+                } else {
+                    lps[j++] = 0;
+                }
+            }
+        }
+        return lps[s.length() - 1];
+    }
+
+
 
     static int longestPrefixSuffix(String s) {
         // using KMP
