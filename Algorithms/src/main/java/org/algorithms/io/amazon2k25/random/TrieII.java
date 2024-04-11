@@ -1,4 +1,4 @@
-package org.algorithms.io.amazon2k25;
+package org.algorithms.io.amazon2k25.random;
 
 public class TrieII {
     private static final int LIMIT = 26;
