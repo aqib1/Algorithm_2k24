@@ -1,4 +1,4 @@
-package org.algorithms.io.amazon2k25;
+package org.algorithms.io.amazon2k25.random;
 
 import org.algorithms.io.tree.TreeNode;
 

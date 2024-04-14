@@ -1,4 +1,4 @@
-package org.algorithms.io.amazon2k25;
+package org.algorithms.io.amazon2k25.random;
 
 import java.util.ArrayList;
 import java.util.List;
