@@ -7,10 +7,30 @@ public class RemoveDuplicatesSortedArrayI {
     public static void main(String[] args) {
         var d = new int[]{1,1,1,2,2,3};
         System.out.println(
-                removeDuplicates(d)
+                removeDuplicatesUsingCount(d)
         );
 
         System.out.println(Arrays.toString(d));
+    }
+
+    // Time complexity O(N) and space complexity O(1)
+    public static int removeDuplicatesUsingCount(int [] nums) {
+        int i = 1;
+        int count = 1;
+
+        for(int j = 1; j < nums.length; j++) {
+            if(nums[j] == nums[j - 1]) {
+                count++;
+            } else {
+                count = 1;
+            }
+
+            if(count == 1) {
+                nums[i++] = nums[j];
+            }
+        }
+
+        return i;
     }
 
     // Time complexity O(N) and space complexity O(1)
