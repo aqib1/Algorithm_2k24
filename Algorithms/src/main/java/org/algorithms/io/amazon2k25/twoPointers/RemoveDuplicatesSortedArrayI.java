@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class RemoveDuplicatesSortedArrayI {
 
     public static void main(String[] args) {
+
         var d = new int[]{1,1,1,2,2,3};
         System.out.println(
                 removeDuplicatesUsingCount(d)
