@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class MergeSort {
 
+    // Time complexity ON(logN) and space O(n)
     public static void main(String[] args) {
         var m = new MergeSort();
         var data = new int[] {5, 3, 1, 8, 9, 0, 10};
