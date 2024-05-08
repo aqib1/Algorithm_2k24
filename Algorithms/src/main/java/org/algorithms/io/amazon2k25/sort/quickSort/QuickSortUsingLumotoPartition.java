@@ -2,9 +2,9 @@ package org.algorithms.io.amazon2k25.sort.quickSort;
 
 import java.util.Arrays;
 
-public class QuickSortUsingLumoto {
+public class QuickSortUsingLumotoPartition {
     public static void main(String[] args) {
-        var quickSort = new QuickSortUsingLumoto();
+        var quickSort = new QuickSortUsingLumotoPartition();
         var data = new int[] {5, 4, 2, 1, 2, -8};
         quickSort.sort(data);
 
