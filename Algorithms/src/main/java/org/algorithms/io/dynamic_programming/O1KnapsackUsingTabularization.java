@@ -1,6 +1,6 @@
 package org.algorithms.io.dynamic_programming;
 
-public class KnapsackUsingTabularization {
+public class O1KnapsackUsingTabularization {
     // Bottom up approach
     // time capacity O(n * w) and space is O(n * w)
     public int knapsack(int w, int[] val, int[] wt) {

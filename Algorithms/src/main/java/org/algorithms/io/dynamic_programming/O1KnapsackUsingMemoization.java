@@ -2,7 +2,7 @@ package org.algorithms.io.dynamic_programming;
 
 import java.util.Arrays;
 
-public class KnapsackUsingMemoization {
+public class O1KnapsackUsingMemoization {
     // Top-down approach
     public int knapsackUsingMemoization(int w, int []val, int []wt) {
         int n = val.length;

@@ -1,8 +1,8 @@
 package org.algorithms.io.dynamic_programming;
 
-public class KnapsackRecursion {
+public class O1KnapsackRecursion {
     public static void main(String[] args) {
-        var knapsack = new KnapsackRecursion();
+        var knapsack = new O1KnapsackRecursion();
         System.out.println(
                 knapsack.knapsack(4, new int[] {1, 2, 3}, new int[] {4, 5, 1})
         );
