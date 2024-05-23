@@ -9,7 +9,7 @@ public class KnapsackRecursive {
         );
     }
 
-    // Time complexity O(2^n) and space O(2^n)
+    // Time complexity O(2^n) and space O(2^n) - Top-down approach
     public int knapsack(int w, int[] val, int[] wt) {
         return knapsack(w, val, wt, val.length);
     }
