@@ -2,7 +2,7 @@ package org.algorithms.io.number;
 
 public class PeasantMultiply {
     public static void main(String[] args) {
-        System.out.println(peasantMultiplyRecur(2, 7));
+        System.out.println(peasantMultiply(3, 6));
     }
     // time OLog(min(x, y))
     // space complexity O(1)
@@ -19,7 +19,7 @@ public class PeasantMultiply {
                 product += y;
 
             x = Math.floorDiv(x, 2);
-            y += y;
+            y *= 2;
         }
         return product;
     }
