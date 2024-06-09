@@ -15,26 +15,26 @@ public class ArrayLargestLocal {
         ));
     }
 
+    public static int maxValue(int[][] grid, int i, int j) {
+        int max = Integer.MIN_VALUE;
+        for (int pointerX = i; pointerX < i + 3; pointerX++) {
+            for (int pointerY = j; pointerY < j + 3; pointerY++) {
+                max = Math.max(max, grid[pointerX][pointerY]);
+            }
+        }
+        return max;
+    }
+
     public static int[][] largestLocal(int[][] grid) {
         if (grid.length < 3 || grid[0].length < 3) {
             throw new IllegalArgumentException("Grid must be at least 3x3");
         }
 
         var result = new int[grid[0].length - 2][grid.length - 2];
-        int resultX = 0;
         for (int i = 0; i < grid.length - 2; i++) {
-            int resultY = 0;
             for (int j = 0; j < grid[i].length - 2; j++) {
-                int max = Integer.MIN_VALUE;
-                for (int pointerX = i; pointerX < i + 3; pointerX++) {
-                    for (int pointerY = j; pointerY < j + 3; pointerY++) {
-                        max = Math.max(max, grid[pointerX][pointerY]);
-                    }
-                }
-                result[resultX][resultY] = max;
-                resultY++;
+                result[i][j] = maxValue(grid, i, j);
             }
-            resultX++;
         }
 
         return result;
