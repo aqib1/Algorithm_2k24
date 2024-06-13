@@ -4,7 +4,7 @@ import org.algorithms.io.linkedlist.ListNode;
 
 public class InsertionSortList {
     /*
-    *
+    * Time complexity O(n)2 + Space O(n)
     * */
     public ListNode insertionSortList(ListNode head) {
         if(head.next == null)
