@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 public class BinaryTreePaths {
 
+    // Time complexity O(n) where n is nodes in a tree
+    // Space complexity O(n) due to recursion
     public List<String> binaryTreePaths(TreeNode root) {
         var response = new ArrayList<String>();
         var current = new ArrayList<Integer>();
