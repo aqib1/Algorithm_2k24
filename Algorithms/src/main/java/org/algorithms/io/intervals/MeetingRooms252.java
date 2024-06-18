@@ -1,4 +1,4 @@
-package org.algorithms.io.meetings;
+package org.algorithms.io.intervals;
 
 import java.util.Arrays;
 import java.util.Comparator;
