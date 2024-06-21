@@ -37,6 +37,8 @@ public class SortArray912 {
         return nums;
     }
 
+    // Time complexity OnLog(n)
+    // Space complexity O(n)
     private void mergeSort(int[] nums) {
         if(nums.length <= 1)
             return;
