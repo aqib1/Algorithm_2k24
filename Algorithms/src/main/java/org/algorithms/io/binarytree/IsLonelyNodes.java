@@ -11,6 +11,8 @@ public class IsLonelyNodes {
         return response;
     }
 
+    // Time complexity O(n) where n is number of nodes
+    // Space complexity O(n) due to recursion
     public void getLonelyNodes(TreeNode root, List<Integer> response) {
         if(root == null)
             return;
