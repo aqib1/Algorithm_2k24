@@ -5,6 +5,8 @@ public class IsEvenOddBalanced {
         System.out.println('2' - '0');
     }
 
+    // Time complexity O(n) where n is number of characters
+    // Space complexity O(1)
     public boolean isBalanced(String num) {
         int evenSum = 0, oddSum = 0;
 
