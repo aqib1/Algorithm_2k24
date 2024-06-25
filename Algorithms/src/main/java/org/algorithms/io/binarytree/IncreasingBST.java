@@ -3,6 +3,8 @@ package org.algorithms.io.binarytree;
 public class IncreasingBST {
     private TreeNode response = new TreeNode();
 
+    // Time complexity is O(n) where n is number of nodes
+    // space complexity is O(n)
     public TreeNode increasingBST(TreeNode root) {
         var pointer = response;
         construct(root);
