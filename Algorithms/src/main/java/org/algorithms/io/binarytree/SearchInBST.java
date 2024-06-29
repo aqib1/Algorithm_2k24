@@ -1,6 +1,8 @@
 package org.algorithms.io.binarytree;
 
 public class SearchInBST {
+    // time complexity OLog(N)
+    // space complexity OLog(N)
     public TreeNode searchBST(TreeNode root, int val) {
         if(root == null)
             return null;
