@@ -19,7 +19,7 @@ public class OrderArray {
     }
 
     // we will find using binary search
-    // time complexity long(n)
+    // time complexity long(n) where n is the size of array
     public int find(long searchValue) {
         int start = 0;
         int end = elementLimit;
