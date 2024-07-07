@@ -13,6 +13,8 @@ public class BubbleSort {
         );
     }
 
+    // Time complexity is O(N * 2)
+    // Space complexity is O(1)
     private static int[] bubbleSort(int[] data) {
         int limit = data.length - 1;
         while(limit >= 0) {
