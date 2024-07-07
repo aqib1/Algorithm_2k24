@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class InsertionSort {
 
+    // Time complexity O(n2) and space complexity O(1)
     public void insertionSort(int[] data) {
         // pointer
         for(var ptr = 1; ptr < data.length; ptr++) {
