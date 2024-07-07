@@ -107,3 +107,14 @@ public class OrderArray {
         orderArray.display();
     }
 }
+
+/**
+ *
+ * Algorithm                            Time Complexity
+ * Linear Search                            O(n)
+ * Binary Search                            OLog(n)
+ * Insertion in unordered list              O(1)
+ * Insertion in ordered list                O(n)
+ * Deletion in unordered list               O(n)
+ * Deletion in ordered list                 O(n)
+ * */
