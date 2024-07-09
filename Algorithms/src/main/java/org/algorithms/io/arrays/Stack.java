@@ -2,6 +2,8 @@ package org.algorithms.io.arrays;
 
 // Last in first out
 
+import java.util.Random;
+
 public class Stack {
     private final int[] stack;
     private int top = -1;
@@ -17,6 +19,14 @@ public class Stack {
             throw new IllegalArgumentException("No more space");
         }
         stack[index] = value;
+    }
+
+    public boolean isFull() {
+        return top == stack.length - 1;
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
     }
 
     // O(1)
@@ -36,12 +46,16 @@ public class Stack {
 
     public static void main(String[] args) {
         var stack = new Stack(5);
-        stack.push(2);
-        stack.push(1);
-        stack.push(3);
+        var random = new Random();
+        while(!stack.isFull()) {
+            stack.push(random.nextInt(100));
+        }
 
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
-        System.out.println(stack.pop());
+        System.out.println("First number : " + stack.peek());
+
+        while(!stack.isEmpty()) {
+            System.out.println(stack.pop());
+        }
+
     }
 }
