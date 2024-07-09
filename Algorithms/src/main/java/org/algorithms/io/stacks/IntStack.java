@@ -1,14 +1,14 @@
-package org.algorithms.io.arrays;
+package org.algorithms.io.stacks;
 
 // Last in first out
 
 import java.util.Random;
 
-public class Stack {
+public class IntStack {
     private final int[] stack;
     private int top = -1;
 
-    public Stack(int size) {
+    public IntStack(int size) {
         stack = new int[size];
     }
 
@@ -45,7 +45,7 @@ public class Stack {
 
 
     public static void main(String[] args) {
-        var stack = new Stack(5);
+        var stack = new IntStack(5);
         var random = new Random();
         while(!stack.isFull()) {
             stack.push(random.nextInt(100));
