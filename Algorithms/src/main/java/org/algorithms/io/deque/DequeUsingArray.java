@@ -1,7 +1,5 @@
 package org.algorithms.io.deque;
 
-import java.util.ArrayDeque;
-
 public class DequeUsingArray {
     private Integer[] data;
     private transient int head;
@@ -10,6 +8,10 @@ public class DequeUsingArray {
 
     public DequeUsingArray(int limit) {
         data = new Integer[limit];
+    }
+
+    public int size() {
+        return size;
     }
 
     public boolean isEmpty() {
