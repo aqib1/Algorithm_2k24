@@ -9,12 +9,15 @@ public class SingleLinkedList {
     public SingleLinkedList() {
     }
 
+    // Time complexity O(1)
+    // Space complexity O(n)
     public void push(int value) {
         var node = new Node(value);
         node.next = first;
         first = node;
     }
 
+    // Time complexity O(n)
     @Override
     public String toString() {
         var f = first;
@@ -32,6 +35,7 @@ public class SingleLinkedList {
         return first == null;
     }
 
+    // Time complexity O(1)
     public int deleteFirst() {
         if (isEmpty()) {
             throw new EmptyStackException();
@@ -42,6 +46,7 @@ public class SingleLinkedList {
         return tmp.value;
     }
 
+    // Time complexity O(n)
     public int deleteLast() {
         if (isEmpty()) {
             throw new EmptyStackException();
@@ -83,11 +88,19 @@ public class SingleLinkedList {
 
         System.out.println(singleLinkedList);
 
-        singleLinkedList.deleteFirst();
+        System.out.println("Deleted: " + singleLinkedList.deleteFirst());
 
         System.out.println(singleLinkedList);
 
-        singleLinkedList.deleteLast();
+        System.out.println("Deleted: " + singleLinkedList.deleteLast());
+
+        System.out.println(singleLinkedList);
+
+        System.out.println("Deleted: " + singleLinkedList.deleteLast());
+
+        System.out.println(singleLinkedList);
+
+        System.out.println("Deleted: " + singleLinkedList.deleteLast());
 
         System.out.println(singleLinkedList);
     }
