@@ -9,6 +9,9 @@ public class MinRemoveToMakeValid {
                 )
         );
     }
+
+    // Time complexity O(n)
+    // Space complexity O(n)
     public String minRemoveToMakeValid(String s) {
         int paramCount = 0;
         var response = new StringBuilder();
