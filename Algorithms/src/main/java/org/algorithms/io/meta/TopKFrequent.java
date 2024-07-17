@@ -3,6 +3,11 @@ package org.algorithms.io.meta;
 import java.util.*;
 
 public class TopKFrequent {
+
+
+
+    // Time complexity ONLog(N)
+    // Space complexity O(n)
     public List<String> topKFrequent(String[] words, int k) {
         var wordCount = new HashMap<String, Integer>();
         var maxHeap = new PriorityQueue<Map.Entry<String, Integer>>(
