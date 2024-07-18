@@ -5,6 +5,38 @@ import java.util.*;
 public class TopKFrequent {
 
 
+    public int compareToKFrequentWords(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2) {
+        int countComp = e1.getValue().compareTo(e2.getValue());
+        return countComp != 0 ? countComp : e2.getKey().compareTo(e1.getKey());
+    }
+
+    public List<String> topKFrequentBetterSpace(String [] words, int k) {
+        var topKResponse = new ArrayList<String>();
+        var minHeap = new PriorityQueue<>(k, this::compareToKFrequentWords);
+        var wordCount = new HashMap<String, Integer>();
+
+        for(var word: words) wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+
+        for(var entry: wordCount.entrySet()) {
+            if(minHeap.size() < k) {
+                minHeap.offer(entry);
+            } else {
+                if(compareToKFrequentWords(entry, minHeap.peek()) > 0) {
+                    minHeap.poll();
+                    minHeap.offer(entry);
+                }
+            }
+        }
+
+        while(k > 0) {
+            topKResponse.add(minHeap.poll().getKey());
+            k--;
+        }
+
+        Collections.reverse(topKResponse);
+
+        return topKResponse;
+    }
 
     // Time complexity ONLog(N)
     // Space complexity O(n)
