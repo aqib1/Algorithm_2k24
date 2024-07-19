@@ -10,6 +10,8 @@ public class TopKFrequent {
         return countComp != 0 ? countComp : e2.getKey().compareTo(e1.getKey());
     }
 
+    // Time complexity ONLog(N)
+    // Space complexity O(n)
     public List<String> topKFrequentBetterSpace(String [] words, int k) {
         var topKResponse = new ArrayList<String>();
         var minHeap = new PriorityQueue<>(k, this::compareToKFrequentWords);
