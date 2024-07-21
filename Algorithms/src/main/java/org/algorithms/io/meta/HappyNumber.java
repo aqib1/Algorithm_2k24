@@ -5,6 +5,9 @@ public class HappyNumber {
         var isHappy = new HappyNumber();
         System.out.println(isHappy.isHappy(19));
     }
+
+    // Time complexity OLog(n)
+    // Space complexity O(1)
     public boolean isHappy(int n) {
         while(n > 9) {
             n = getSqOfEachNumber(n);
