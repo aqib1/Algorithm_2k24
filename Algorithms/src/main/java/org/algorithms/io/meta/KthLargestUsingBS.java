@@ -26,6 +26,8 @@ public class KthLargestUsingBS {
         this.nums.sort(Comparator.reverseOrder());
     }
 
+    // Time complexity ON(LogN)
+    // Space complexity O(N)
     public int add(int val) {
         int index = binarySearch(val);
         nums.add(index, val);
