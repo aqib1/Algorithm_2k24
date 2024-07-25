@@ -28,8 +28,8 @@ public class KthLargest {
         }
     }
 
-    // 4 5 8 2
-    // 3
+    // Time complexity Oklog(k) in worst-case as heapify can happen
+    // Space complexity O(k)
     public int add(int val) {
         if(minHeap.size() < k || val > minHeap.peek()) {
             minHeap.offer(val);
