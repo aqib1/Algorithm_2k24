@@ -6,6 +6,21 @@ public class Reverse {
         System.out.println(r.reverse(964));
     }
 
+    // Space complexity O(1)
+    // Time complexity OLog(N)
+    public int reverseOptimal(int x) {
+        long reverse = 0;
+        while(x != 0) {
+            reverse = (reverse * 10) + (x % 10);
+            if(reverse < Integer.MIN_VALUE || reverse > Integer.MAX_VALUE)
+                return 0;
+            x /= 10;
+        }
+       return (int)reverse;
+    }
+
+    // Time complexity O(N)
+    // Space complexity O(N)
     public int reverse(int x) {
         var strInteger = Long.toString(x);
         var isNegative = false;
