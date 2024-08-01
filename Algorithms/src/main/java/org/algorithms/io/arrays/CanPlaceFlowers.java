@@ -5,12 +5,30 @@ public class CanPlaceFlowers {
         var canPlaceFlowers = new CanPlaceFlowers();
 
         System.out.println(
-                canPlaceFlowers.canPlaceFlowersBruteForce(
+                canPlaceFlowers.canPlaceFlowersOptimal(
                         // 2
                         new int[]{1,0,0,0,1},
-                        2
+                        1
                 )
         );
+    }
+
+
+    // time complexity OLog(N)
+    public boolean canPlaceFlowersOptimal(int [] flowerbed, int n) {
+
+        for(int i = 0; i < flowerbed.length; i+=2) {
+            if(flowerbed[i] == 0) {
+                if(i == flowerbed.length - 1
+                        || flowerbed[i] == flowerbed[i + 1]) {
+                    n--;
+                } else {
+                    i++;
+                }
+            }
+        }
+
+        return n <= 0;
     }
 
     // [1,0,0,0,1]
