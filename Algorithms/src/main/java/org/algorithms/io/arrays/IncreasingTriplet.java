@@ -11,7 +11,11 @@ public class IncreasingTriplet {
         ));
     }
 
+    // Time complexity = O(n)
+    // Space complexity = O(1)
+    // 1 ms
     public boolean increasingTriplet(int[] nums) {
+        if (nums == null || nums.length < 3) return false;
         int first = Integer.MAX_VALUE;
         int second = Integer.MAX_VALUE;
 
