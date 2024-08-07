@@ -9,6 +9,8 @@ public class ToGoatLatin {
     }
 
     private static final String KEY_APPEND = "ma";
+    // Time complexity O(n)
+    // Space complexity O(n)
     public String toGoatLatin(String sentence) {
         var words = sentence.split(" ");
         var response = new StringBuilder();
