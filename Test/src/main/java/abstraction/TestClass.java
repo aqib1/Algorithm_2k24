@@ -1,4 +1,4 @@
-import abstraction.*;
+package abstraction;
 
 public class TestClass {
     public static void main(String[] args) {

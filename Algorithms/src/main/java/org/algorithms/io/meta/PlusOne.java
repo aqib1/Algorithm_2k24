@@ -10,6 +10,9 @@ public class PlusOne {
                 Arrays.toString(p.plusOne(new int[] {9, 9, 9, 9}))
         );
     }
+
+    // Time complexity O(n)
+    // Space complexity O(n)
     public int[] plusOne(int[] digits) {
         if(digits.length < 1)
             return digits;
