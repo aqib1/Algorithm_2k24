@@ -6,6 +6,8 @@ public class MajorityElement {
     public static void main(String[] args) {
     }
 
+    // Time complexity O(n)
+    // Space complexity O(n)
     public int majorityElement(int[] nums) {
         int moreThan = nums.length / 2;
         var count = new HashMap<Integer, Integer>();
