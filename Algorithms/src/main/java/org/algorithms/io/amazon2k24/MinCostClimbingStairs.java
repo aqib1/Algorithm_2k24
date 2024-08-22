@@ -10,7 +10,10 @@ public class MinCostClimbingStairs {
         );
     }
 
-
+    // [1, 3, 2, 5, 6, 10, 4]
+    // [0, 0, 1, 3, 3, 8, 9, 13]
+    // Time complexity O(n)
+    // Space complexity O(n + 1)
     public int minCostClimbingStairs(int[] cost) {
         if(cost.length < 3) {
             return Math.min(cost[0], cost[1]);
