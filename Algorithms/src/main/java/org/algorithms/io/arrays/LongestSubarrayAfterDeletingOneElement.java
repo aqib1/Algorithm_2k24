@@ -12,6 +12,7 @@ public class LongestSubarrayAfterDeletingOneElement {
         );
     }
 
+    // Time complexity O(n) and space complexity O(1)
     public static int longestSubarray(int[] nums) {
         int start = 0, current = 0;
         int longest = Integer.MIN_VALUE;
