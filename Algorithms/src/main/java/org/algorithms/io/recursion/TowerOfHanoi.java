@@ -18,6 +18,8 @@ public class TowerOfHanoi {
      * Move disk 2 from B to C
      * Move disk 1 from A to C
      */
+    // Expected Time Complexity: O(2 ^ n).
+    // Expected Auxiliary Space: O(n).
     public static void towerOfHanoi(int n, char from, char to, char via) {
         if(n == 0)
             return;
