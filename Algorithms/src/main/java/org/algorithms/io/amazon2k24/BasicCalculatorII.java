@@ -3,10 +3,11 @@ package org.algorithms.io.amazon2k24;
 import java.util.Stack;
 
 public class BasicCalculatorII {
-    abstract static class Node {
-        public abstract int evaluate();
+    // Inheritance
+    interface Node {
+        int evaluate();
 
-        public static Node fromString(String node) {
+        static Node fromString(String node) {
             return switch (node) {
                 case "+" -> new AddNode();
                 case "-" -> new SubNode();
@@ -17,7 +18,7 @@ public class BasicCalculatorII {
         }
     }
 
-    abstract static class OperatorNode extends Node {
+    abstract static class OperatorNode implements Node {
         private Node left;
         private Node right;
 
@@ -70,7 +71,7 @@ public class BasicCalculatorII {
         }
     }
 
-    static class NumericNode extends Node {
+    static class NumericNode implements Node {
         private final String value;
 
         public NumericNode(String value) {
