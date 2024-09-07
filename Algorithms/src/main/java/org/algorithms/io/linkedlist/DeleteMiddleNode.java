@@ -13,6 +13,24 @@ public class DeleteMiddleNode {
        deleteMiddle(head);
     }
 
+    public ListNode slowFastAlgo(ListNode head) {
+        if(head == null || head.next == null) return null;
+
+        var slow = head;
+        var fast = head;
+        ListNode prev = null;
+
+        while(fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        prev.next = slow.next;
+
+        return head;
+    }
+
     public static ListNode deleteMiddle(ListNode head) {
         int len = 0;
         var pointer = head;
