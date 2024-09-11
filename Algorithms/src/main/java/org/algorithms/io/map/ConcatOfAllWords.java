@@ -1,7 +1,6 @@
 package org.algorithms.io.map;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /*
  * Input: s = "barfoothefoobarman", words = ["foo","bar"]
@@ -15,29 +14,30 @@ import java.util.stream.Collectors;
 
 public class ConcatOfAllWords {
     public static void main(String[] args) {
-        System.out.println(findSubstring("wordgoodgoodgoodbestword", new String[]{"word","good","best","word"}));
+        System.out.println(findSubstring("barfoothefoobarman", new String[]{"bar","foo"}));
     }
 
+    // Time complexity O(n * w) where n is character in s and w is words lenghth
+    // Space complexity O(n * w)
     public static List<Integer> findSubstring(String s, String[] words) {
-        var joinWords = String.join("", words);
-        var wordsLength = joinWords.length();
         var response = new ArrayList<Integer>();
-        if (s.length() < wordsLength || wordsLength == 0)
-            return List.of();
+        if (s.isEmpty() || words.length == 0)
+            return response;
+        var wordsCount = new HashMap<String, Integer>();
+        var wordLen = words[0].length();
+        var wordsLen = wordLen * words.length;
 
-        var eachWordLen = words[0].length();
-        var wordsCount = Arrays.stream(words)
-                .collect(
-                        Collectors.toMap(
-                                k -> k,
-                                v -> 1,
-                                Integer::sum
-                        )
-                );
+        for (String word : words) {
+            wordsCount.put(word, wordsCount.getOrDefault(word, 0) + 1);
+        }
 
-
-        for(int i = 0; i + wordsLength <= s.length(); i++) {
-            if(checkPermutationOfWords(i, eachWordLen, wordsLength, s, wordsCount)) {
+        for (int i = 0; i + wordsLen <= s.length(); i++) {
+            var subStr = s.substring(i, i + wordsLen);
+            if (checkPermutations(
+                    subStr,
+                    wordLen,
+                    wordsCount
+            )) {
                 response.add(i);
             }
         }
@@ -45,29 +45,15 @@ public class ConcatOfAllWords {
         return response;
     }
 
-    private static boolean checkPermutationOfWords(int start, int eachWordLen, int wordsLength, String s, Map<String, Integer> wordsCount) {
-        var wordsKey = wordsCount.keySet();
-        var strWordCount = new HashMap<String, Integer>();
-
-        for(int i = start; i <= (start + wordsLength) - eachWordLen; i+= eachWordLen) {
-            var subStr  = s.substring(i, i + eachWordLen);
-            if(!wordsKey.contains(subStr)) {
-                return false;
-            }
-
-            if(strWordCount.containsKey(subStr)) {
-                strWordCount.put(subStr, strWordCount.get(subStr) + 1);
-            } else {
-                strWordCount.put(subStr, 1);
-            }
+    private static boolean checkPermutations(String subStr, int wordLen, HashMap<String, Integer> wordsCount) {
+        var subStrWordCount = new HashMap<String, Integer>();
+        for (int i = 0; i < subStr.length(); i += wordLen) {
+            var subStrWord = subStr.substring(i, i + wordLen);
+            subStrWordCount.put(
+                    subStrWord,
+                    subStrWordCount.getOrDefault(subStrWord, 0) + 1
+            );
         }
-
-        for(var key: wordsCount.keySet()) {
-            if(!Objects.equals(strWordCount.get(key), wordsCount.get(key))) {
-                return false;
-            }
-        }
-
-        return true;
+        return wordsCount.equals(subStrWordCount);
     }
 }
