@@ -14,6 +14,7 @@ public class CountNumberOfKBigIndices {
         );
     }
 
+    // Using max heap and two boolean array
     // Time OnLog(n)
     // Space O(2n) = O(n)
     public int kBigIndices(int[] nums, int k) {
