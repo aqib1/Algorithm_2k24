@@ -1,7 +1,6 @@
 package org.algorithms.io.map;
 
 import java.util.HashSet;
-
 public class IsValidSudoku {
 
     public static void main(String[] args) {
@@ -22,6 +21,8 @@ public class IsValidSudoku {
         );
     }
 
+    // Time complexity O(9*9) = O(1)
+    // Space O(9*9) with more objects  
     public static boolean isValidSudoku(char[][] board) {
         for (char[] chars : board) {
             var unique = new HashSet<Character>();
@@ -60,6 +61,31 @@ public class IsValidSudoku {
 
                             unique.add(aChar);
                         }
+                    }
+                }
+            }
+        }
+
+        return true;
+    }
+
+    // Time complexity O(9*9) = O(1)
+    // Space O((9*9) * 3) 3 space points for each number O(1)
+    public boolean isValidSudokuShort(char[][] board) {
+        /*
+         * For each number in row we will encode -> row(number)
+         * For each number is column we will encode -> (number)col
+         * For each number in 3 x 3 grid we will encode -> row/3(number)col/3
+         */
+        var seen = new HashSet<String>();
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                if (board[i][j] != '.') {
+                    var encode = "(" + board[i][j] + ")";
+                    if (!seen.add(encode + i) ||
+                            !seen.add(j + encode) ||
+                            !seen.add((i / 3) + encode + (j / 3))) {
+                        return false;
                     }
                 }
             }
