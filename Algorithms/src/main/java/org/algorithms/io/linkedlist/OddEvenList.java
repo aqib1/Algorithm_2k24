@@ -48,4 +48,27 @@ public class OddEvenList {
 
         return odds.next;
     }
+
+    // Time complexity O(N)
+    // Space complexity O(1)
+    public ListNode oddEvenListWithConstantSpace(ListNode head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+
+        var oddPointer = head;
+        var evenPointer = head.next;
+        var evenHead = head.next;
+
+        while(evenPointer != null && evenPointer.next != null) {
+            oddPointer.next = oddPointer.next.next;
+            evenPointer.next = evenPointer.next.next;
+            oddPointer = oddPointer.next;
+            evenPointer = evenPointer.next;
+        }
+
+        oddPointer.next = evenHead;
+
+        return head;
+    }
 }
