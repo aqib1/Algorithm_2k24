@@ -1,4 +1,4 @@
-package org.algorithms.io.list;
+package org.algorithms.io.linkedlist;
 
 import java.util.LinkedList;
 import java.util.Queue;
