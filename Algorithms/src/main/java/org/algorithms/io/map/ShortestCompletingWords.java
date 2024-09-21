@@ -4,12 +4,56 @@ public class ShortestCompletingWords {
 
     public static void main(String[] args) {
         System.out.println(
-                shortestCompletingWord(
-                        "Iot9096",
-                        new String[] {"you","stop","cancer","education","into"}
+                shortestCompletingWordBetter(
+                        "1s3 456",
+                        new String[] {"looks","pest","stew","show"}
                 )
         );
     }
+
+
+
+    public static String shortestCompletingWordBetter(String licensePlate, String[] words) {
+        var countLicense = new int[26];
+        for(char ch: licensePlate.toCharArray()) {
+            if(ch >= 'a' && ch <= 'z') {
+                countLicense[ch - 'a']++;
+            }
+
+            if(ch >= 'A' && ch <= 'Z') {
+                countLicense[ch - 'A']++;
+            }
+        }
+
+        int minLength = Integer.MAX_VALUE;
+        var response = "";
+
+        for(var word: words) {
+            if(word.length() < minLength && isCompleteWord(word, countLicense)) {
+                minLength = word.length();
+                response = word;
+            }
+        }
+
+        return response;
+    }
+
+    private static boolean isCompleteWord(String word, int[] countLicense) {
+        var wordCharCount = new int[26];
+        for(char ch: word.toCharArray()) {
+            if(ch >= 'a' && ch <= 'z') {
+                wordCharCount[ch - 'a']++;
+            }
+        }
+
+        for(int x = 0; x < wordCharCount.length; x++) {
+            if(wordCharCount[x] < countLicense[x])
+                return false;
+        }
+
+        return true;
+    }
+
 
     public static String shortestCompletingWord(String licensePlate, String[] words) {
         var licensePlateCharCount = new int[256];
