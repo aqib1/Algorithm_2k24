@@ -56,7 +56,8 @@ public class ReplaceWords {
         return builder.substring(0, builder.length() - 1);
     }
 
-    // test
+    // Time complexity O(DL + S) where D is number of words in dictionary and L avg len of each word and S is number of words from, sentence
+    // Space O(DL + S)
     public static void main(String[] args) {
         var replace = new ReplaceWords();
         System.out.println(replace.replaceWords(
