@@ -56,6 +56,7 @@ public class ReplaceWords {
         return builder.substring(0, builder.length() - 1);
     }
 
+    // test
     public static void main(String[] args) {
         var replace = new ReplaceWords();
         System.out.println(replace.replaceWords(
