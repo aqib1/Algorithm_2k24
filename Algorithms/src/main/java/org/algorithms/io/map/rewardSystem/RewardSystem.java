@@ -2,27 +2,27 @@ package org.algorithms.io.map.revise;
 
 
 import java.util.*;
-import java.util.stream.IntStream;
 
 public class RewardSystem {
 
     public static void main(String[] args) {
-        var reward  = new RewardSystem();
+        var reward = new RewardSystem();
+        for (int i = 0; i <= 100; i++) {
+            reward.makePayment(
+                    0, i + 1, 100 + i, TransactionType.P2M
+            );
+        }
+
+
         System.out.println(
                 reward.makePayment(
-                        0, 2, 100, TransactionType.P2P
+                        1, 400, 2008, TransactionType.P2M
                 )
         );
 
         System.out.println(
                 reward.makePayment(
-                        1, 4, 18, TransactionType.P2M
-                )
-        );
-
-        System.out.println(
-                reward.makePayment(
-                        2, 2, 50, TransactionType.P2M
+                        1, 1, 5000, TransactionType.P2P
                 )
         );
 
@@ -34,12 +34,13 @@ public class RewardSystem {
     private static final int TOP_USER = 100;
     private final Map<Integer, Integer> senderIdToTotalAmount;
     private final Map<Integer, Map<TransactionType, Integer>> senderIdToTotalTransactions;
-    private final Queue<Map.Entry<Integer, Integer>> senderIdToAmountMaxHeap;
+    private final Queue<Map.Entry<Integer, Integer>> senderIdToAmountMinHeap;
+
     public RewardSystem() {
         this.senderIdToTotalAmount = new HashMap<>();
         this.senderIdToTotalTransactions = new HashMap<>();
-        this.senderIdToAmountMaxHeap = new PriorityQueue<>(
-                (a, b) -> Integer.compare(b.getValue(), a.getValue())
+        this.senderIdToAmountMinHeap = new PriorityQueue<>(
+                Comparator.comparingInt(Map.Entry::getValue)
         );
     }
 
@@ -56,21 +57,21 @@ public class RewardSystem {
                 type
         );
 
-        int index = IntStream.range(0, TOP_USER)
-                .filter(i ->
-                        !senderIdToAmountMaxHeap.isEmpty() &&
-                                (senderId == senderIdToAmountMaxHeap.poll().getKey())
-                ).findFirst()
-                .orElse(-1);
+        var found = this.senderIdToAmountMinHeap.stream()
+                        .filter(entry -> entry.getKey() == senderId)
+                        .findAny()
+                        .orElse(null);
 
         return new TransactionSummary(
                 transactionId,
-                index != -1
+                found != null
         );
     }
 
     public int getNumberOfTransactions(int senderId, TransactionType type) {
-        return senderIdToTotalTransactions.get(senderId).get(type);
+        return senderIdToTotalTransactions.getOrDefault(
+                senderId, Map.of()
+        ).getOrDefault(type, 0);
     }
 
     private void saveAmountForSender(int senderId, int amount, TransactionType type) {
@@ -93,11 +94,15 @@ public class RewardSystem {
     }
 
     private void prepareMaxHeap(int senderId, int amount, TransactionType type) {
-                if(type == TransactionType.P2M) {
-                    senderIdToAmountMaxHeap.removeIf(i -> i.getKey() == senderId);
-                    senderIdToAmountMaxHeap.add(
-                            new AbstractMap.SimpleEntry<>(senderId, amount)
-                    );
+        if (type == TransactionType.P2M) {
+            senderIdToAmountMinHeap.removeIf(i -> i.getKey() == senderId);
+            senderIdToAmountMinHeap.add(
+                    new AbstractMap.SimpleEntry<>(senderId, amount)
+            );
+
+            if(senderIdToAmountMinHeap.size() > TOP_USER) {
+                senderIdToAmountMinHeap.poll();
+            }
         }
     }
 }
