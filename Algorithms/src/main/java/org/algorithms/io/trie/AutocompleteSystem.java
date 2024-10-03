@@ -27,12 +27,23 @@ public class AutocompleteSystem {
         }
     }
 
+    private String prefix;
+    private Trie trie;
     public AutocompleteSystem(String[] sentences, int[] times) {
-
+        this.trie = new Trie();
+        this.prefix = "";
     }
 
     public List<String> input(char c) {
+        if(c == '#') {
+            trie.insert(prefix, 1);
+            prefix = "";
+            return List.of();
+        }
+        prefix = prefix.concat(String.valueOf(c));
+        var response = new ArrayList<String>();
 
+        return response;
     }
 
     public static void main(String[] args) {
