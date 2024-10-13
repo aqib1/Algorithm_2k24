@@ -1,5 +1,33 @@
 package org.algorithms.io.tree;
+ class Node2 {
+    private int data;
+    private Node2 left;
+    private Node2 right;
 
+    public Node2(int data) {
+        this.data = data;
+    }
+
+    public void setLeft(Node2 left) {
+        this.left = left;
+    }
+
+    public void setRight(Node2 right) {
+        this.right = right;
+    }
+
+    public int getData() {
+        return data;
+    }
+
+    public Node2 getLeft() {
+        return left;
+    }
+
+    public Node2 getRight() {
+        return right;
+    }
+}
 public class BST {
 
     public static void main(String[] args) {
@@ -15,11 +43,11 @@ public class BST {
         System.out.println(bst.isValidBst());
     }
 
-    private Node root;
+    private Node2 root;
 
     public boolean add(int value) {
         if (root == null) {
-            root = new Node(value);
+            root = new Node2(value);
         } else {
             add(value, root);
         }
@@ -32,7 +60,7 @@ public class BST {
         return validateBst(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private boolean validateBst(Node current, int low, int high) {
+    private boolean validateBst(Node2 current, int low, int high) {
         if(current == null) return true;
         if(current.getData() <= low || current.getData() >= high) return false;
 
@@ -41,11 +69,11 @@ public class BST {
     }
 
 
-    public void add(int value, Node current) {
+    public void add(int value, Node2 current) {
         if (value > current.getData()) {
             if(current.getRight() == null) {
                 current.setRight(
-                        new Node(value)
+                        new Node2(value)
                 );
             } else {
                 add(value, current.getRight());
@@ -53,7 +81,7 @@ public class BST {
         } else {
             if(current.getLeft() == null) {
                 current.setLeft(
-                        new Node(value)
+                        new Node2(value)
                 );
             } else {
                 add(value, current.getLeft());
@@ -66,7 +94,7 @@ public class BST {
         return inOrder(root, new StringBuilder());
     }
 
-    private String inOrder(Node root, StringBuilder builder) {
+    private String inOrder(Node2 root, StringBuilder builder) {
         if(root == null) return builder.toString();
 
         inOrder(root.getLeft(), builder);
