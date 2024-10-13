@@ -1,6 +1,7 @@
 package org.algorithms.io.tree;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class Node{
     int data;
@@ -13,10 +14,13 @@ class Node{
     }
 }
 public class BinaryTree {
+
+    // DFS - Depth first search
+
     // N, L, R
     public void preorder(Node root) {
         if(root == null) return;
-        System.out.println(root.data);
+        System.out.print(root.data + " ");
         preorder(root.left);
         preorder(root.right);
     }
@@ -25,7 +29,7 @@ public class BinaryTree {
     public void inorder(Node root) {
         if(root == null) return;
         inorder(root.left);
-        System.out.println(root.data);
+        System.out.print(root.data + " ");
         inorder(root.right);
     }
 
@@ -34,6 +38,21 @@ public class BinaryTree {
         if(root == null) return;
         postorder(root.left);
         postorder(root.right);
-        System.out.println(root.data);
+        System.out.print(root.data + " ");
+    }
+
+    // bfs - Breadth first search / Level order search
+    public void bfs(Node root) {
+        if(root == null) return;
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while(!queue.isEmpty()) {
+            var current = queue.poll();
+            System.out.print(current.data + " ");
+
+            if(current.left != null) queue.add(current.left);
+            if(current.right != null) queue.add(current.right);
+        }
     }
 }
