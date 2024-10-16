@@ -74,7 +74,8 @@ public class JavaForkJoinPool {
 
         try(var forkJoin = ForkJoinPool.commonPool()) {
             forkJoin.invoke(new MyRecursiveAction(data, 72));
-//            System.out.println(found);
+           var found = forkJoin.invoke(new MyRecursiveTask(data, 72));
+            System.out.println(found);
             forkJoin.shutdown();
         }
     }
