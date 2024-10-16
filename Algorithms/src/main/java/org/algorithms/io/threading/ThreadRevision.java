@@ -1,7 +1,9 @@
 package org.algorithms.io.threading;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -63,7 +65,7 @@ public class ThreadRevision {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-        scheduleExecutor();
+//        scheduleExecutor();
 
         //        var futureTask = new FutureTask<>(() -> {
 //            System.out.println("I am waiting....");
@@ -79,20 +81,33 @@ public class ThreadRevision {
 //        System.out.println("Hi there");
 
         // java 1.5
-//        try (var fixedThreadPool = Executors.newFixedThreadPool(1)) {
-//            for (int i = 0; i < 10; i++) {
-//                fixedThreadPool.execute(() -> {
-//                    for (int a = 1; a <= 10; a++) {
-//                        System.out.println("2 X " + a + " = " + (2 * a));
-//                    }
-//                    System.out.println("\n" );
-//                    try {
-//                        Thread.sleep(1000);
-//                    } catch (InterruptedException e) {
-//                        // no need
-//                    }
-//                });
-//            }
+        try (var fixedThreadPool = Executors.newFixedThreadPool(1)) {
+            var futures = new ArrayList<Future<Boolean>>();
+            for (int i = 0; i < 10; i++) {
+                futures.add(fixedThreadPool.submit(() -> {
+                    for (int a = 1; a <= 10; a++) {
+                        System.out.println("2 X " + a + " = " + (2 * a));
+                    }
+                    System.out.println("\n" );
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        // no need
+                    }
+
+                    return true;
+                }));
+            }
+
+            futures.forEach(f -> {
+                try {
+                    System.out.println(f.get());
+                } catch (InterruptedException | ExecutionException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
+
 //            fixedThreadPool.shutdown();
 //            var awaited = fixedThreadPool.awaitTermination(1, TimeUnit.SECONDS);
 //            if(!awaited) {
