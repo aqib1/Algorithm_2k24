@@ -21,6 +21,8 @@ public class ReentrantLocking {
             this.lock.lock();
             System.out.println("Locking again is allowed for current thread as we are implementing it in reentrant way");
         } finally {
+            // because we lock twice
+            this.lock.unlock();
             this.lock.unlock();
         }
     }
