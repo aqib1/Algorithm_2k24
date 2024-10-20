@@ -27,4 +27,21 @@ public class BestTimeToBuyAndSaleStock {
 
         return maxProfit;
     }
+
+    // O(n), O(1)
+    public static int maxProfitFaster(int[] prices) {
+        // start sale when price is high
+        int minPrice = prices[0];
+        int maxProfit = 0;
+
+        for(int i = 1; i < prices.length; i++) {
+            if(prices[i] < minPrice) {
+                minPrice = prices[i];
+            } else if(prices[i] - minPrice > maxProfit) {
+                maxProfit = prices[i] - minPrice;
+            }
+        }
+
+        return maxProfit;
+    }
 }
