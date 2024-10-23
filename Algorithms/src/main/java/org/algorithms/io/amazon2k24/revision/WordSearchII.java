@@ -23,5 +23,10 @@ public class WordSearchII {
             }
             current.end++;
         }
+
+        public boolean containKey(char key) {
+            int idx = key - 'a';
+            return this.nodes[idx] != null;
+        }
     }
 }
