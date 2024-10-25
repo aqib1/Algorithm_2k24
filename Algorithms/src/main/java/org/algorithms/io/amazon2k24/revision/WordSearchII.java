@@ -10,5 +10,18 @@ public class WordSearchII {
         public Trie() {
             this.nodes = new Trie[LIMIT];
         }
+
+        public void insert(String word) {
+            var current = this;
+            for(char ch: word.toCharArray()) {
+                int idx = ch - 'a';
+                if(current.nodes[idx] == null) {
+                    current.nodes[idx] = new Trie();
+                }
+                current = current.nodes[idx];
+                current.count++;
+            }
+            current.end++;
+        }
     }
 }
