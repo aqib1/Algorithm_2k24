@@ -4,8 +4,6 @@ public class LengthOfLongestSubstring {
     public static void main(String[] args) {
         System.out.println(lengthOfLongestSubstring(
                 "dvdf"
-
-                // 2
         ));
     }
     public static int lengthOfLongestSubstring(String s) {
@@ -16,9 +14,8 @@ public class LengthOfLongestSubstring {
         int maxLen = 0;
         while(i < limit && j < limit) {
             if(charCount[data[j]] < 1) {
-                charCount[data[j]]++;
                 maxLen = Math.max(maxLen, (j - i) + 1);
-                j++;
+                charCount[data[j++]]++;
             } else {
                 charCount[data[i++]]--;
             }
