@@ -17,20 +17,19 @@ public class MyCircularQueue {
     }
 
     private final int []queue;
-    private int start;
-    private int end;
+    private int front;
     private int rare;
     private int size;
     public MyCircularQueue(int k) {
         this.queue = new int[k];
+        this.rare = -1;
     }
 
     public boolean enQueue(int value) {
         if(isFull()) return false;
 
-        this.queue[end] = value;
-        rare = end;
-        end = (end + 1) % queue.length;
+        rare = (rare + 1) % queue.length;
+        this.queue[rare] = value;
         size++;
         return true;
     }
@@ -38,13 +37,14 @@ public class MyCircularQueue {
 
     public boolean deQueue() {
         if(isEmpty()) return false;
-        start = (start + 1) % queue.length;
+
+        front = (front + 1) % queue.length;
         size--;
         return true;
     }
 
     public int Front() {
-        return isEmpty() ? -1 : this.queue[start];
+        return isEmpty() ? -1 : this.queue[front];
     }
 
     public int Rear() {
