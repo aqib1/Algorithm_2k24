@@ -23,6 +23,7 @@ class ListNode {
 }
 
 public class MergedKSortedList {
+    // Time complexity ON(LogK) and space O(N)
     public ListNode mergeKLists(ListNode[] kSortedLists) {
         if(Objects.isNull(kSortedLists)) return null;
         var node = new ListNode();
@@ -32,6 +33,7 @@ public class MergedKSortedList {
         Arrays.stream(kSortedLists)
                 .filter(Objects::nonNull)
                 .forEach(minHeap::offer);
+
         var pointer = node;
         while(!minHeap.isEmpty()) {
             var poll = minHeap.poll();
