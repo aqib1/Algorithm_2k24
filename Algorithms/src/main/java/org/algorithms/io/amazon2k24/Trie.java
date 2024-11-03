@@ -9,7 +9,7 @@ public class Trie {
     public static void main(String[] args) {
         var trie = new Trie();
         trie.insert("abcd");
-        System.out.println(trie.searchSubString("ab"));
+        System.out.println(trie.containsAll("abcdK"));
     }
 
     public Trie() {
@@ -53,9 +53,10 @@ public class Trie {
         Trie current = this;
         for(char c: value.toCharArray()) {
             int idx = c - 'a';
-            if(current.trie[idx] != null) {
-                current = current.trie[idx];
+            if(current.trie[idx] == null) {
+                return false;
             }
+            current = current.trie[idx];
         }
 
         return current.isComplete;
