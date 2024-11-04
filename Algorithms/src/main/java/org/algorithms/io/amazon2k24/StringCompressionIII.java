@@ -6,6 +6,8 @@ public class StringCompressionIII {
                 compressedString("aaaaaaaaay")
         );
     }
+
+    // O(k*2) space where k is unique characters + O(n) time
     public static String compressedString(String word) {
         if(word.isEmpty())
             return "";
