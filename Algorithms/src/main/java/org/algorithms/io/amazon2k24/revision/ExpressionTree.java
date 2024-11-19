@@ -6,7 +6,7 @@ import java.util.Stack;
 
 public class ExpressionTree {
     public abstract static class Node {
-        public abstract int evaluate();
+        public abstract double evaluate();
         public static Node getNode(String value) {
             return switch(value) {
                  case "*" -> new MulNode();
@@ -42,7 +42,7 @@ public class ExpressionTree {
     public static class AdditionNode extends OperatorNode {
 
         @Override
-        public int evaluate() {
+        public double evaluate() {
             return getLeft().evaluate() + getRight().evaluate();
         }
     }
@@ -50,7 +50,7 @@ public class ExpressionTree {
     public static class SubNode extends OperatorNode {
 
         @Override
-        public int evaluate() {
+        public double evaluate() {
             return getLeft().evaluate() - getRight().evaluate();
         }
     }
@@ -58,7 +58,7 @@ public class ExpressionTree {
     public static class MulNode extends OperatorNode {
 
         @Override
-        public int evaluate() {
+        public double evaluate() {
             return getLeft().evaluate() * getRight().evaluate();
         }
     }
@@ -66,7 +66,7 @@ public class ExpressionTree {
     public static class DivNode extends OperatorNode {
 
         @Override
-        public int evaluate() {
+        public double evaluate() {
             return getLeft().evaluate() / getRight().evaluate();
         }
     }
@@ -78,8 +78,8 @@ public class ExpressionTree {
         }
 
         @Override
-        public int evaluate() {
-            return Integer.parseInt(node);
+        public double evaluate() {
+            return Double.parseDouble(node);
         }
     }
 
