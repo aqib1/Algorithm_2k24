@@ -1,12 +1,15 @@
 package org.algorithms.io.map.revise;
 
 
+import org.algorithms.io.map.rewardSystem.TransactionSummary;
+import org.algorithms.io.map.rewardSystem.TransactionType;
+
 import java.util.*;
 
-public class RewardSystem {
+public class RewardSystem1 {
 
     public static void main(String[] args) {
-        var reward = new RewardSystem();
+        var reward = new RewardSystem1();
         for (int i = 0; i <= 100; i++) {
             reward.makePayment(
                     0, i + 1, 100 + i, TransactionType.P2M
@@ -36,7 +39,7 @@ public class RewardSystem {
     private final Map<Integer, Map<TransactionType, Integer>> senderIdToTotalTransactions;
     private final Queue<Map.Entry<Integer, Integer>> senderIdToAmountMinHeap;
 
-    public RewardSystem() {
+    public RewardSystem1() {
         this.senderIdToTotalAmount = new HashMap<>();
         this.senderIdToTotalTransactions = new HashMap<>();
         this.senderIdToAmountMinHeap = new PriorityQueue<>(

@@ -1,7 +1,5 @@
 package org.algorithms.io.threading;
 
-//import java.util.ArrayList;
-
 public class JavaVirtualThreads {
     public static void main(String[] args) throws InterruptedException {
 

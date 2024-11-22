@@ -1,3 +1,8 @@
+package org.algorithms.io.queues;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class FirstUniqueChar {
     public int firstUniqChar(String s) {
         Queue<Character> queue = new LinkedList<>();

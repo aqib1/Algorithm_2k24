@@ -3,7 +3,7 @@ package org.algorithms.io.threading;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicInteger;
 
-class GetRunnable implements Runnable {
+class GetRunnable1 implements Runnable {
 
     private final AtomicInteger random = new AtomicInteger();
 
@@ -33,7 +33,7 @@ class GetRunnable implements Runnable {
 //FutureTask like behaviour
 public class ThreadWaitAndNotifyAll {
     public static void main(String[] args) throws InterruptedException {
-        var getRunnable = new GetRunnable();
+        var getRunnable = new GetRunnable1();
         var thread = new Thread(getRunnable);
         thread.start();
 

@@ -1,12 +1,15 @@
 package org.algorithms.io.map.revise;
 
 
+import org.algorithms.io.map.rewardSystem.TransactionSummary;
+import org.algorithms.io.map.rewardSystem.TransactionType;
+
 import java.util.*;
 
 public class RewardSystem {
 
     public static void main(String[] args) {
-        var reward = new RewardSystem();
+        var reward = new org.algorithms.io.map.revise.RewardSystem1();
         for (int i = 0; i <= 100; i++) {
             reward.makePayment(
                     0, i + 1, 100 + i, TransactionType.P2M

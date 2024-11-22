@@ -31,9 +31,9 @@ class GetRunnable implements Runnable {
 }
 
 //FutureTask like behaviour
-public class ThreadWaitAndNotifyAll {
+class ThreadWaitAndNotifyAll1 {
     public static void main(String[] args) throws InterruptedException {
-        var getRunnable = new GetRunnable();
+        var getRunnable = new GetRunnable1();
         var thread = new Thread(getRunnable);
         thread.start();
 

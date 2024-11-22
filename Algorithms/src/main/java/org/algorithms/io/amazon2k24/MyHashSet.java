@@ -1,3 +1,7 @@
+package org.algorithms.io.amazon2k24;
+
+import java.util.Arrays;
+
 class MyHashSet {
     private final static int MAX_LIMIT = (int)Math.pow(10, 6) + 1;
     private final int set[];
