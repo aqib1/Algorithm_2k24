@@ -1,7 +1,5 @@
 package org.algorithms.io.amazon2k24;
 
-import org.algorithms.io.list.SingleLinkedList;
-
 public class ReversedSinglyLinkedListNode {
     public static class SinglyLinkedListNode {
         int data;

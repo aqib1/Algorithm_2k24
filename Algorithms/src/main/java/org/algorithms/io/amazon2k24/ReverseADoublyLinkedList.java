@@ -1,4 +1,4 @@
-package org.algorithms.io;
+package org.algorithms.io.amazon2k24;
 
 public class ReverseADoublyLinkedList {
     static class DoublyLinkedListNode {
