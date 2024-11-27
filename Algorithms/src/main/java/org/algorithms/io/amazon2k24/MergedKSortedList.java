@@ -1,15 +1,16 @@
 package org.algorithms.io.amazon2k24;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.PriorityQueue;
+import java.util.*;
 
 class ListNode {
     int val;
     ListNode next;
 
     ListNode() {
+    }
+
+    ListNode(ListNode next) {
+        this.next = next;
     }
 
     ListNode(int val) {
