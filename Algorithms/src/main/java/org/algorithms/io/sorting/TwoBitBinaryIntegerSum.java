@@ -22,6 +22,9 @@ public class TwoBitBinaryIntegerSum {
                 )
         );
     }
+
+    // Time complexity OnLog(n)
+    // Space complexity O(n)
     public List<Integer> sumBinary(int[] arr1, int[] arr2) {
         var response = new ArrayList<Integer>(arr1.length + arr2.length);
         int carry = 0;
