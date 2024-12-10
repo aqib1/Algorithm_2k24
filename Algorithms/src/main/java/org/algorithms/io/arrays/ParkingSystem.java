@@ -9,7 +9,8 @@ class ParkingSystem {
         parkingSlots[2] = small;
     }
 
-
+    // Time complexity O(n)
+    // Space complexity O(3 * 32 bits)
     public boolean addCar(int carType) {
         int parkingIndex = carType == 1 ? 0 : carType == 2 ? 1 : 2;
         if(parkingSlots[parkingIndex] == 0) return false;
