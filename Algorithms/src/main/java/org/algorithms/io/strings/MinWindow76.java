@@ -21,8 +21,46 @@ public class MinWindow76 {
     public static void main(String[] args) {
         var min = new MinWindow76();
         System.out.println(
-                min.minWindow("ADOBECODEBANC", "ABC")
+                min.minWindowFaster("ab", "b")
         );
+    }
+
+
+    // Time complexity O(n * m)
+    // Space O(n)
+    public String minWindowFaster(String s, String t) {
+        if(t.length() > s.length())
+            return "";
+        var count = new int[256];
+        int start = 0, end = 0, minSize = Integer.MAX_VALUE, startIndex = 0;
+        for(char ch: t.toCharArray()) count[ch]++;
+
+        int tCount = t.length();
+        char[] sChar = s.toCharArray();
+
+        while(end < sChar.length) {
+            if(count[sChar[end]]-- > 0) {
+                tCount--;
+            }
+
+            while(tCount == 0) {
+                int len = end - start;
+                if(minSize > len) {
+                    startIndex = start;
+                    minSize = len;
+                }
+
+                if(count[sChar[start]]++ == 0) {
+                    tCount++;
+                }
+                start++;
+            }
+
+            end++;
+        }
+
+
+        return minSize == Integer.MAX_VALUE ? "" : s.substring(startIndex, startIndex + minSize + 1);
     }
 
     // Time complexity O(n * m)
