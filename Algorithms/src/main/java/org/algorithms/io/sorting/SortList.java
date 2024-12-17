@@ -5,7 +5,8 @@ import org.algorithms.io.linkedlist.ListNode;
 import java.util.Objects;
 
 public class SortList {
-
+    // Time complexity O(n)2
+    // Space complexity O(1)
     public ListNode sortList(ListNode head) {
         if(Objects.isNull(head))
             return null;
