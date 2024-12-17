@@ -12,6 +12,8 @@ public class InsertionSortDynamic {
         System.out.println(Arrays.toString(data));
     }
 
+    // Time complexity O(n)2
+    // Space complexity O(1)
     public void insertionSort(int[] arr, BiPredicate<Integer, Integer> comp) {
         for (int a = 1; a < arr.length; a++) {
             int tmp = arr[a];
