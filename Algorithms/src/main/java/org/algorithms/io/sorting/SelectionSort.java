@@ -13,6 +13,9 @@ public class SelectionSort {
                 )
         );
     }
+
+    // Time complexity O(n2)
+    // Space is O(1)
     public void selectionSort(int[] arr) {
         for(int i = 0; i < arr.length; i++) {
             int smallestValue = arr[i];
