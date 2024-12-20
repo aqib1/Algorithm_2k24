@@ -11,6 +11,8 @@ public class LongestCommonSubsequence {
            )
         );
     }
+    // Time complexity O(m * n)
+    // Space complexity due to memoization O(m * n)
     public int longestCommonSubsequence(String text1, String text2) {
         return lcs(
                 text1,
