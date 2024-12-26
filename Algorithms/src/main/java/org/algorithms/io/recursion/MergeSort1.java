@@ -11,7 +11,7 @@ public class MergeSort1 {
         System.out.println(Arrays.toString(data));
     }
 
-    // Time complexity OLog(n)
+    // Time complexity OnLog(n)
     // Space complexity O(n)
     public void mergeSort(int[] nums) {
         if(nums.length <= 1)
