@@ -12,6 +12,8 @@ public class QuickSearchKLargestNumber {
         );
     }
 
+    // Time complexity OnLog(n)
+    // Space complexity OLog(n)
     public int findKBiggest(int [] arr, int k) {
         return findKBiggest(arr, 0, arr.length - 1, arr.length - k);
     }

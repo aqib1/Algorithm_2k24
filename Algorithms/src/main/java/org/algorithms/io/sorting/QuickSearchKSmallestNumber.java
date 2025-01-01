@@ -14,6 +14,8 @@ public class QuickSearchKSmallestNumber {
         return quickSearch(arr, 0, arr.length - 1, k);
     }
 
+    // Time complexity OnLog(n)
+    // Space complexity OLog(n)
     public int quickSearch(int []arr, int low, int high, int k) {
         int pivot = partition(arr, low, high);
 
