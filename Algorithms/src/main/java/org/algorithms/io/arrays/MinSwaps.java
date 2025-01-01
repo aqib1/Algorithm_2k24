@@ -7,6 +7,8 @@ public class MinSwaps {
         int windowSize = 0;
         for(int i : data) windowSize += i;
 
+        if(windowSize == 0) return -1;
+
         int currOnesInWindow = 0;
         int maxOnesInWindows = Integer.MIN_VALUE;
 
