@@ -1,9 +1,9 @@
 package org.algorithms.io.sorting;
 
-public class QuickSearch {
+public class QuickSearchKLargestNumber {
 
     public static void main(String[] args) {
-        var quickSearch = new QuickSearch();
+        var quickSearch = new QuickSearchKLargestNumber();
         System.out.println(
                 quickSearch.findKBiggest(
                         new int[] {5, 1, 2, 13, 4, 10},
