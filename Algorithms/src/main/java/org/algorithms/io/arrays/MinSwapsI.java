@@ -1,6 +1,6 @@
 package org.algorithms.io.arrays;
 
-public class MinSwaps {
+public class MinSwapsI {
     // Time complexity O(n)
     // Space complexity O(1)
     public int minSwaps(int[] data) {
