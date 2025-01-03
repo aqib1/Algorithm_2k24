@@ -1,6 +1,7 @@
 package org.algorithms.io.math;
 
 public class PingalaExponentiation {
+
     // time complexity OLog(n)
     // space complexity O(1)
     public double pow(int a, long pow) {
