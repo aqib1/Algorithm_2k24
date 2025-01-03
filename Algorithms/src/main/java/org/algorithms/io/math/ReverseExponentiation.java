@@ -16,10 +16,8 @@ public class ReverseExponentiation {
     // Space complexity O(1)
     private int reverse(int n) {
         int reverse = 0;
-        while(n > 0) {
-            reverse += n % 10;
-            if(n / 10 != 0)
-                reverse *= 10;
+        while(n != 0) {
+            reverse = (reverse * 10) + n % 10;
             n /= 10;
         }
         return reverse;
