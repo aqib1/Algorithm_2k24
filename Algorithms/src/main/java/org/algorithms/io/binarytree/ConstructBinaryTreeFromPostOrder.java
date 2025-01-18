@@ -3,13 +3,14 @@ package org.algorithms.io.binarytree;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ConstructBinaryTreeFromOrder {
+public class ConstructBinaryTreeFromPostOrder {
     private int[] postorder;
     private int postorderIndex;
     private Map<Integer, Integer> inorderIndex;
 
     // Time complexity O(n)
     // Space complexity O(n)
+    // Post Order = LRN (Construct right first)
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         this.inorderIndex = new HashMap<>();
         this.postorder = postorder;
