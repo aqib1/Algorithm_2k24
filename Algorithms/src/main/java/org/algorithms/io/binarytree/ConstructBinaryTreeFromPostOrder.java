@@ -10,7 +10,7 @@ public class ConstructBinaryTreeFromPostOrder {
 
     // Time complexity O(n)
     // Space complexity O(n)
-    // Post Order = LRN (Construct right first)
+    // Post Order = LRN (Construct right firstleetco
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         this.inorderIndex = new HashMap<>();
         this.postorder = postorder;
