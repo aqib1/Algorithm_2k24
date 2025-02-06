@@ -10,6 +10,8 @@ public class BinarySearch {
         ));
     }
 
+    // time complexity O(LogN) for search and ONLog(n) for sorting
+    // Space complexity O(n)
     public static int binarySearchRec(int[] container, int item) {
         Arrays.sort(container);
 
@@ -27,6 +29,8 @@ public class BinarySearch {
         else return binarySearchRec(container, item, left, mid - 1);
     }
 
+    // time complexity O(LogN) for search and ONLog(n) for sorting
+    // Space complexity O(1)
     public static int binarySearch(int[] container, int item) {
         Arrays.sort(container);
         int left = 0;
