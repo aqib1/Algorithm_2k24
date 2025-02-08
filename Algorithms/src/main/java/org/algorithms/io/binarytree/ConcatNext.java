@@ -25,7 +25,35 @@ public class ConcatNext {
         }
     }
 
-    public Node connect(Node root) {
+    // Time complexity = O(n) and space complexity = O(n)
+    public Node connectWithoutNewObjectApproach(Node root) {
+        if(root == null)
+            return null;
+        Queue<Node> bfs = new LinkedList<>();
+        bfs.add(root);
+        while(!bfs.isEmpty()) {
+            var size = bfs.size();
+            for(int i = 0; i < size; i++) {
+                var current = bfs.poll();
+                if(i != size - 1) {
+                    current.next = bfs.peek();
+                }
+
+                if(current.left != null) {
+                    bfs.add(current.left);
+                }
+
+                if(current.right != null) {
+                    bfs.add(current.right);
+                }
+            }
+        }
+
+        return root;
+    }
+
+    // Time complexity = O(n) and space complexity = O(n) but a bit slower
+    public Node connectWithNewObjectApproach(Node root) {
         if (root == null)
             return null;
         root.next = new Node(0);
