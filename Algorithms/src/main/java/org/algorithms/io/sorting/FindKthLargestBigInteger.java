@@ -4,18 +4,38 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.PriorityQueue;
 
 
 public class FindKthLargestBigInteger {
     public static void main(String[] args) {
         var f = new FindKthLargestBigInteger();
         System.out.println(
-            f.kthLargestNumber(
+            f.fastKthLargestNumber(
                new String[] {"3","6","7","10"},
-               1
+               2
             )
         );
     }
+
+    // Time complexity O(n) and space is O(k)
+    public String fastKthLargestNumber(String[] nums, int k) {
+        var queue = new PriorityQueue<String>(k, (a, b) -> {
+            if(a.length() != b.length()) {
+                return Integer.compare(a.length(), b.length());
+            }
+            return a.compareTo(b);
+        });
+
+        for(var num: nums) {
+            queue.offer(num);
+            if(queue.size() > k) {
+                queue.poll();
+            }
+        }
+        return queue.poll();
+    }
+
     public String kthLargestNumber(String[] nums, int k) {
         if (k < 1 || k > nums.length)
             throw new IllegalArgumentException("k is out of bounds");
