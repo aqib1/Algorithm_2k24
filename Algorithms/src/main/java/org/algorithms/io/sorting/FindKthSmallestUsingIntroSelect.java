@@ -2,15 +2,15 @@ package org.algorithms.io.sorting;
 
 public class FindKthSmallestUsingIntroSelect {
     // Public method: k is 1-indexed.
-    public static int kthSmallest(int[] arr, int k) {
+    public static int kthLargestUsingIntroSelect(int[] arr, int k) {
         if (k < 1 || k > arr.length)
             throw new IllegalArgumentException("k is out of bounds");
         // Convert to 0-indexed and call the recursive method.
-        return kthSmallest(arr, 0, arr.length - 1, k - 1);
+        return kthLargestUsingIntroSelect(arr, 0, arr.length - 1, arr.length - k);
     }
 
     // Recursive method to find the kth smallest element within arr[left...right].
-    private static int kthSmallest(int[] arr, int left, int right, int k) {
+    private static int kthLargestUsingIntroSelect(int[] arr, int left, int right, int k) {
         if (left == right) {
             return arr[left];
         }
@@ -22,9 +22,9 @@ public class FindKthSmallestUsingIntroSelect {
         if (k == pivotIndex) {
             return arr[k];
         } else if (k < pivotIndex) {
-            return kthSmallest(arr, left, pivotIndex - 1, k);
+            return kthLargestUsingIntroSelect(arr, left, pivotIndex - 1, k);
         } else {
-            return kthSmallest(arr, pivotIndex + 1, right, k);
+            return kthLargestUsingIntroSelect(arr, pivotIndex + 1, right, k);
         }
     }
 
@@ -96,6 +96,6 @@ public class FindKthSmallestUsingIntroSelect {
     public static void main(String[] args) {
         int[] arr = {12, 3, 5, 7, 19, 4};
         int k = 3; // Looking for the 3rd smallest element.
-        System.out.println("The " + k + "th smallest element is: " + kthSmallest(arr, k));
+        System.out.println("The " + k + "th smallest element is: " + kthLargestUsingIntroSelect(arr, k));
     }
 }
