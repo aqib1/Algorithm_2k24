@@ -2,7 +2,7 @@ package org.algorithms.io.recursion;
 
 public class FibonacciUsingHeadRecursion {
     public static void main(String[] args) {
-        System.out.println(fibonacci(8));
+        System.out.println(fibonacci(9));
     }
     public static int fibonacci(int n) {
         if(n == 0 || n == 1)
