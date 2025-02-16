@@ -3,7 +3,13 @@ package org.algorithms.io.recursion;
 public class ReverseString {
     public static void main(String[] args) {
         var reverse = new ReverseString();
-        System.out.println(reverse.reverse("Kevin"));
+        System.out.println(reverse.reverseOneLinear("Kevin"));
+    }
+
+    public String reverseOneLinear(String s) {
+        if(s.isEmpty()) return s;
+
+        return reverseOneLinear(s.substring(1)) + s.charAt(0);
     }
 
     public String reverse(String s) {
