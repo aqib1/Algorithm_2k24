@@ -1,6 +1,6 @@
 package org.algorithms.io.searching;
 
-public class FindContainer {
+public class LinearSearch {
     // Time O(n)
     // Space O(1)
     public int find(int[] container, int item) {
