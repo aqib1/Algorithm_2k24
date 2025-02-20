@@ -18,7 +18,7 @@ public class FindKthLargestBigInteger {
         );
     }
 
-    // Time complexity O(n) and space is O(k)
+    // Time complexity O(n) and space is O(k) where k is number of highest number
     public String fastKthLargestNumber(String[] nums, int k) {
         var queue = new PriorityQueue<String>(k, (a, b) -> {
             if(a.length() != b.length()) {
