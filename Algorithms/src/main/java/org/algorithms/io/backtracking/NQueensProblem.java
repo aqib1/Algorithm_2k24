@@ -3,7 +3,7 @@ package org.algorithms.io.backtracking;
 public class NQueensProblem {
     public static void main(String[] args) {
         var nqueue = new NQueensProblem(
-                5
+                4
         );
         nqueue.solve();
     }
