@@ -40,6 +40,8 @@ public class HamiltonianCycleI {
                 }
 
                 // BACKTRACK
+                // backtrack
+                hamiltonPath[position] = 0;
             }
         }
         return false;

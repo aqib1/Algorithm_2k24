@@ -51,6 +51,7 @@ public class HamiltonianCycle {
                 }
 
                 // backtrack
+                hamiltonianPath[position] = 0;
             }
         }
 

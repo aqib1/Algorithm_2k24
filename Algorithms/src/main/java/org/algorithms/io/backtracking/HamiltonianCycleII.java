@@ -48,6 +48,7 @@ public class HamiltonianCycleII {
                     return true;
                 }
                 // backtrack
+                hamiltonianCycle[position] = 0;
             }
         }
 

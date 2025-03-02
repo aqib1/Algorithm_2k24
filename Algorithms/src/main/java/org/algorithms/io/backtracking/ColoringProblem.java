@@ -3,6 +3,7 @@ package org.algorithms.io.backtracking;
 // Np-complete
 public class ColoringProblem {
 
+    // Time complexity O(N!) and space O(n)
     public static void main(String[] args) {
         var c = new ColoringProblem(
                 new int[][]{
@@ -51,6 +52,8 @@ public class ColoringProblem {
                 if(setColor(vertexIndex + 1)) {
                     return true;
                 }
+                // Backtrack
+                assignedColors[vertexIndex] = 0;
             }
 
             // backtrack as color value increment in loop
