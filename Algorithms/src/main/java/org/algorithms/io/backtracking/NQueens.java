@@ -3,6 +3,7 @@ package org.algorithms.io.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
+// Np-complete
 public class NQueens {
 
     // Time complexity O(n!) and Space is O(n^2)

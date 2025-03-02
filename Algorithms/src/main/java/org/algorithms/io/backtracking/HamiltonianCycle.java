@@ -1,5 +1,5 @@
 package org.algorithms.io.backtracking;
-
+// NP-complete
 public class HamiltonianCycle {
     private final int noOfVertex;
     private final int[] hamiltonianPath;
