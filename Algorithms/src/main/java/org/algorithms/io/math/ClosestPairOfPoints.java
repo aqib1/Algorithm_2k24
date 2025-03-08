@@ -1,10 +1,10 @@
-package org.algorithms.io.divide_and_conquer;
+package org.algorithms.io.math;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import static org.algorithms.io.divide_and_conquer.Point.distance;
+import static org.algorithms.io.math.Point.distance;
 
 public class ClosestPairOfPoints {
 
