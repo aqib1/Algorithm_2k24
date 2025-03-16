@@ -1,7 +1,5 @@
 package org.algorithms.io.dynamic_programming;
 
-import java.util.Arrays;
-
 public class KnapsackRecursion {
     public static void main(String[] args) {
         var knapsack = new KnapsackRecursion();
