@@ -1,10 +1,10 @@
 package org.algorithms.io.strings;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
 public class SimplifyPath {
     public static void main(String[] args) {
         var sim = new SimplifyPath();
-        System.out.println(sim.simplifyPath("/../"));
+        System.out.println(sim.simplifyPath("/home/user/Documents/../Pictures"));
     }
     /**
      * You are given an absolute path for a Unix-style file system, which always begins with a slash '/'. Your task is to transform this absolute path into its simplified canonical path.
@@ -26,23 +26,26 @@ public class SimplifyPath {
             return "";
         }
         var dataSplit = path.split("/");
-        var stack = new Stack<String>();
+        var deque = new ArrayDeque<String>();
 
         for(var data : dataSplit) {
+            if(data.equals(".") || data.isBlank())
+                continue;
+
             if(data.equals("..")) {
-                if(!stack.isEmpty())
-                    stack.pop();
-            } else if(!data.equals(".") && !data.isBlank()) {
-                stack.push(data);
+                if(!deque.isEmpty())
+                    deque.removeLast();
+            } else {
+                deque.addLast(data);
             }
         }
 
-        if(stack.isEmpty())
+        if(deque.isEmpty())
             return "/";
 
         StringBuilder response = new StringBuilder();
-        while(!stack.isEmpty()) {
-            response.insert(0, "/" + stack.pop());
+        while(!deque.isEmpty()) {
+            response.append("/").append(deque.pollFirst());
         }
 
         return response.toString();
