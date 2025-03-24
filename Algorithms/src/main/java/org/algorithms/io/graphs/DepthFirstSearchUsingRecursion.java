@@ -2,9 +2,8 @@ package org.algorithms.io.graphs;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
-public class DepthFirstSearch {
+public class DepthFirstSearchUsingRecursion {
     public static void main(String[] args) {
         var v1 = new Vertex("A");
         var v2 = new Vertex("B");
@@ -24,12 +23,8 @@ public class DepthFirstSearch {
         list.add(v4);
         list.add(v5);
 
-        var dfs = new DepthFirstSearch();
+        var dfs = new DepthFirstSearchUsingRecursion();
         dfs.dfs(list);
-    }
-    private final Stack<Vertex> lifo;
-    public DepthFirstSearch() {
-        this.lifo = new Stack<>();
     }
     public void dfs(List<Vertex> forest) {
         for(Vertex f: forest) {
@@ -38,18 +33,13 @@ public class DepthFirstSearch {
         }
     }
 
-    public void dfs(Vertex v) {
-        v.setVisited(true);
-        lifo.push(v);
+    public void dfs(Vertex vertex) {
+        System.out.println(vertex);
 
-        while(!lifo.isEmpty()) {
-            var curr = lifo.pop();
-            System.out.println(curr);
-            for(var node: curr.getVertexes()) {
-                if(!node.isVisited()) {
-                    node.setVisited(true);
-                    lifo.push(node);
-                }
+        for(var node: vertex.getVertexes()) {
+            if(!node.isVisited()) {
+                node.setVisited(true);
+                dfs(node);
             }
         }
     }
