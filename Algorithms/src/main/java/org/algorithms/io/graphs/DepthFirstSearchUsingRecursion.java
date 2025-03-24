@@ -26,6 +26,8 @@ public class DepthFirstSearchUsingRecursion {
         var dfs = new DepthFirstSearchUsingRecursion();
         dfs.dfs(list);
     }
+
+    // Time complexity O(V+E) and space O(V+E)
     public void dfs(List<Vertex> forest) {
         for(Vertex f: forest) {
             if(!f.isVisited())

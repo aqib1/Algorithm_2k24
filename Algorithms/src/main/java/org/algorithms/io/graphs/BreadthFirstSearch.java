@@ -17,6 +17,8 @@ public class BreadthFirstSearch {
         b.addVertex(c);
         bfs.bfs(a);
     }
+
+    //  Time complexity O(V+E) and space O(V+E)
     public void bfs(Vertex root) {
         Queue<Vertex> queue = new LinkedList<>();
         root.setVisited(true);
