@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.function.BiPredicate;
 
 public class MergeSortDynamic {
-
+    // Time complexity O(nLogn) and space complexity O(n)
     public static void main(String[] args) {
         var m = new MergeSortDynamic();
         var data = new int[] {5, 3, 1, 8, 9, 0, 10};
