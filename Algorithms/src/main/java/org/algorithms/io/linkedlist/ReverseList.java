@@ -1,4 +1,4 @@
-package org.algorithms.io.list;
+package org.algorithms.io.linkedlist;
 
 public class ReverseList {
     // Time complexity O(n) space is O(1)
