@@ -6,8 +6,8 @@ import java.util.function.BiPredicate;
 public class InsertionSortDynamic {
     public static void main(String[] args) {
         var i = new InsertionSortDynamic();
-        int[] data = {5, 4, 6, 2, 8, 11};
-        i.insertionSort(data, (a, b) -> a < b);
+        int[] data = {3, 1, -2, 8, -6, 2, 188};
+        i.insertionSort(data, (a, b) -> a > b);
 
         System.out.println(Arrays.toString(data));
     }
