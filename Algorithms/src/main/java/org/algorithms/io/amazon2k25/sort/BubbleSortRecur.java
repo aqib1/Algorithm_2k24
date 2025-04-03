@@ -11,6 +11,7 @@ public class BubbleSortRecur {
         System.out.println(Arrays.toString(data));
     }
 
+    // Time complexity O(n2) and space O(n2)
     public void sort(int []arr) {
         sort(arr, 0, arr.length - 1);
     }
