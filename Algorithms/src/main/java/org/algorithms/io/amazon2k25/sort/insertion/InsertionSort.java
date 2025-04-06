@@ -1,4 +1,4 @@
-package org.algorithms.io.amazon2k25.sort;
+package org.algorithms.io.amazon2k25.sort.insertion;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package org.algorithms.io.interviewPrep2k25;
+package org.algorithms.io.amazon2k25.sort.insertion;
 
 import org.algorithms.io.linkedlist.ListNode;
 
@@ -16,17 +16,17 @@ public class InsertionSortList {
         System.out.println(i.sort(head));
     }
 
+    // Time complexity O(n2) and space complexity O(1)
     public ListNode sort(ListNode head) {
-        if(head == null)
-            return null;
         var dummy = new ListNode(Integer.MIN_VALUE);
         var current = head;
 
         while(current != null) {
             var pre = dummy;
-            while(pre.next != null && pre.next.val < current.val) {
+            while (pre.next != null && pre.next.val <= current.val) {
                 pre = pre.next;
             }
+
             var next = current.next;
             current.next = pre.next;
             pre.next = current;
