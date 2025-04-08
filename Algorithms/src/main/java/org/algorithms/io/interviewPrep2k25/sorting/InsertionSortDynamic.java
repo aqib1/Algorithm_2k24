@@ -1,4 +1,4 @@
-package org.algorithms.io.interviewPrep2k25;
+package org.algorithms.io.interviewPrep2k25.sorting;
 
 import java.util.Arrays;
 import java.util.function.BiPredicate;
