@@ -4,7 +4,7 @@ import org.algorithms.io.tree.TreeNode;
 
 import java.util.ArrayList;
 
-public class IsBst {
+public class IsBstUsingExtraSpace {
 
     // time complexity O(2n) where n is number of nodes and space O(2n)
     public boolean isBstUsingExtraSpace(TreeNode root) {
