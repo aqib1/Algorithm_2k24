@@ -10,7 +10,7 @@ public class IsBstUsingExtraSpace {
     public boolean isBstUsingExtraSpace(TreeNode root) {
         var inOrder = new ArrayList<Integer>();
         inOrder(root, inOrder);
-
+        // A BST is sorted when inOrder
         for(int i = 0; i < inOrder.size() - 1; i++) {
             if(inOrder.get(i + 1) <= inOrder.get(i)) {
                 return false;
