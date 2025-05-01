@@ -1,4 +1,4 @@
-package org.algorithms.io.wise;
+package org.algorithms.io.wise.algorithm;
 
 public class ContiguousSubArray {
 
