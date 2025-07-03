@@ -33,7 +33,7 @@ public class BasicCalculator {
     public static void main(String[] args) {
         var basicCalculator = new BasicCalculator();
         System.out.println(
-                basicCalculator.calculate("2-1 + 2")
+                basicCalculator.calculate("(1+(4+5+2)-3)+(6+8)")
         );
     }
 
@@ -46,7 +46,9 @@ public class BasicCalculator {
             // ignore
         }
         // convert infix notation to reverse polish notation (postfix)
-        return calculatePostfix(postfix(s));
+        var postfix = postfix(s);
+        System.out.println(postfix);
+        return calculatePostfix(postfix);
     }
 
     private int calculatePostfix(List<String> postfix) {
