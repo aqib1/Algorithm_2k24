@@ -96,6 +96,7 @@ public class BasicCalculator {
         // Time complexity O(n)
         // Space O(n)
         var postfix = infixToPostfix(s);
+        System.out.println(postfix);
         return expressionTree(postfix).evalute();
     }
 
