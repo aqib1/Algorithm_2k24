@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class Leetcode150_1 {
     interface Node {
-        int evalute();
+        int evaluate();
 
         static Node fromString(String str) {
             return switch(str) {
@@ -46,7 +46,7 @@ public class Leetcode150_1 {
         }
 
         @Override
-        public int evalute() {
+        public int evaluate() {
             return Integer.parseInt(number);
         }
     }
@@ -54,32 +54,32 @@ public class Leetcode150_1 {
     static class DivNode extends OperatorNode {
 
         @Override
-        public int evalute() {
-            return getLeft().evalute() / getRight().evalute();
+        public int evaluate() {
+            return getLeft().evaluate() / getRight().evaluate();
         }
     }
 
     static class MulNode extends OperatorNode {
 
         @Override
-        public int evalute() {
-            return getLeft().evalute() * getRight().evalute();
+        public int evaluate() {
+            return getLeft().evaluate() * getRight().evaluate();
         }
     }
 
     static class AddNode extends OperatorNode {
 
         @Override
-        public int evalute() {
-            return getLeft().evalute() + getRight().evalute();
+        public int evaluate() {
+            return getLeft().evaluate() + getRight().evaluate();
         }
     }
 
     static class SubNode extends OperatorNode {
 
         @Override
-        public int evalute() {
-            return getLeft().evalute() - getRight().evalute();
+        public int evaluate() {
+            return getLeft().evaluate() - getRight().evaluate();
         }
     }
 
@@ -104,6 +104,6 @@ public class Leetcode150_1 {
                 stack.push(node);
             }
         });
-        return stack.pop().evalute();
+        return stack.pop().evaluate();
     }
 }
